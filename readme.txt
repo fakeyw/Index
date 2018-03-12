@@ -1,0 +1,1 @@
+A structure as named layers, for searching use.
