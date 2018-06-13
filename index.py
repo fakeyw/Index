@@ -10,12 +10,10 @@ class Index(object):
 	def find(self,route):
 		p = self.root_dict
 		for i in route:
-			if i in p:
-				p = p[i]
-			else:
-				return None
+			p = p[i]
 		return p.value
-		
+	#route - ['top','mid','mid',...]
+	#obj - any object
 	def register(self,route,obj):
 		p = self.root_dict
 		layer = len(route)
@@ -49,6 +47,7 @@ class Index(object):
 		p.value = obj
 		return True
 		
+	#delete the obj
 	def delete(self,route): #delete one element
 		p = self.root_dict
 		for i in route:
@@ -57,6 +56,7 @@ class Index(object):
 			p = p[i]
 		p.value =  None
 		
+	#delete the branch
 	def cut(self,route):	#delete the element with its dict (all subelements)
 		p = self.root_dict
 		for i in route[:-1]:
@@ -124,7 +124,7 @@ class Layer(dict):
 		self.value = value
 		self.layer = layer
 		super(Layer,self).__init__(*args,**kw)
-	
+		
 class Index_operator(object):
 	def __init__(self,index):
 		self.target_index = index
