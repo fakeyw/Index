@@ -8,6 +8,16 @@ class Index(object):
 	def __str__(self):
 		pass
 		
+	def __iter__(self):
+		return self.gen_dfs(self.root_dict,[])
+	
+	def gen_dfs(self,dict,parents):
+		for name,sub_dict in dict.items():
+			route_now = parents+[name]
+			yield route_now
+			for i in self.gen_dfs(sub_dict,route_now):
+				yield i
+		
 	def find(self,route):
 		p = self.root_dict
 		for i in route:

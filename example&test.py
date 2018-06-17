@@ -11,4 +11,7 @@ print("\nRaw index:\n",I.root_dict)
 print("\nTree:\n"+I.tree().__str__())
 print("\nTest search:\n",I.search("users"))
 print("\nGet objection:\n",I.get(I.search("users")[1])) 
+
+for i in I:
+	print(i)
 #Caution. Sometimes the order of list can be changed
